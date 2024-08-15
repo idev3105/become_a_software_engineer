@@ -1,9 +1,10 @@
-module learn.idev.org/message_broker/kafka
+module learn.idev.org/microservice/communication
 
 go 1.22.5
 
+require github.com/IBM/sarama v1.43.2
+
 require (
-	github.com/IBM/sarama v1.43.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/eapache/go-resiliency v1.6.0 // indirect
 	github.com/eapache/go-xerial-snappy v0.0.0-20230731223053-c322873962e3 // indirect
