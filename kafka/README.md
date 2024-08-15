@@ -1,0 +1,1 @@
+What is kafka? Kill it with me
