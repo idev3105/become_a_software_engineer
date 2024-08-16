@@ -8,14 +8,14 @@ Kafka combines three key capabilities so you can implement your use cases for ev
 2. To **store streams of events durably and reliably** for as long as you want.
 3. To process **streams of events** as they occur or retrospectively.
 
-## Kafka Component:
+## Kafka Component
 
 1. **Event**: (record or message).
 2. **Topic**:
     - A particular stream of data, **identified by its name**.
     - Cannot query data in topics.
     - You can have as many topic as you want.
-3. **Partition**: 
+3. **Partition**:
     - Topic is spread over a number of "buckets" located on different Kafka brokers.
     - Messages within each partition are ordered.
     - Each message within a partition gets an incremental id, caled **offset**.
@@ -29,12 +29,13 @@ Kafka combines three key capabilities so you can implement your use cases for ev
 5. **Producer**: publish event to Kafka.
 6. **Consumer**: subcribe event.
 
-#### **Important Note**
+### **Important Note**
+
 - Once the data is written to a partion, **it cannot be changed (immutability)**.
 - Data is kept only for limited time (default is one week - configurable).
 - Offset only have meaning for a specific partition.
 
-## Brokers and Topics:
+## Brokers and Topics
 
 Example: Topic A haves 3 partitions and Topic B haves 2 partitions.
 
@@ -45,3 +46,12 @@ Example: Topic A haves 3 partitions and Topic B haves 2 partitions.
 - Every Kafka broker is also called a "boostrap server".
 - That means that **you only need to connect to one broker**, and the Kafka clients will know how to be connected to the entire cluster (smart clients).
 - Each broker knows about all brokers, topics and partitions (metadata).
+
+## Topic replication factor
+
+- Topics should have a replication factor > 1 (usually between 2 and 3).
+- This way if a broker is down, another broker canserve the data.
+
+Example: When Broker 102 is down, we have broker 101 and 103 still up and they can still serve the data.
+
+![Topic replication factor](topic_replication_factor.png)
