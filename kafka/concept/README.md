@@ -62,3 +62,10 @@ Example: When Broker 102 is down, we have broker 101 and 103 still up and they c
 - Producers can only send data to the broker that is **LEADER** of a partition. The other brokers will replicate the data. Therefore, each partion has one leader and multiple ISR (in-sync replica).
 
 **Note**: Producers/Consumers only write/read data into/from **leader**. But since Kafka 2.4, it possible to configure consumers to read from closest replica.
+
+## Producer Acknowledgements (acks)
+
+- Producer can choose to receive acknowledgment of data writes:
+  - **acks=0**: Producer won't wait for acknowledgment (possible data loss).
+  - **acks=1**: Producer will wait for leader acknowledgment (limited data loss).
+  - **acks=2**: Producer will wait leader + replicas acknowledgment (no data loss).
