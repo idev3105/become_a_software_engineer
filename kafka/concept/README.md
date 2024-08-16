@@ -55,3 +55,10 @@ Example: Topic A haves 3 partitions and Topic B haves 2 partitions.
 Example: When Broker 102 is down, we have broker 101 and 103 still up and they can still serve the data.
 
 ![Topic replication factor](topic_replication_factor.png)
+
+## Concept of Leader for a Partition
+
+- At any time only **ONE** broker can be leader for a given partition.
+- Producers can only send data to the broker that is **LEADER** of a partition. The other brokers will replicate the data. Therefore, each partion has one leader and multiple ISR (in-sync replica).
+
+**Note**: Producers/Consumers only write/read data into/from **leader**. But since Kafka 2.4, it possible to configure consumers to read from closest replica.
