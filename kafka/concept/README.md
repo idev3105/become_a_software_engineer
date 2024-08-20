@@ -68,4 +68,8 @@ Example: When Broker 102 is down, we have broker 101 and 103 still up and they c
 - Producer can choose to receive acknowledgment of data writes:
   - **acks=0**: Producer won't wait for acknowledgment (possible data loss).
   - **acks=1**: Producer will wait for leader acknowledgment (limited data loss).
-  - **acks=2**: Producer will wait leader + replicas acknowledgment (no data loss).
+  - **acks=all**: Producer will wait leader + replicas acknowledgment (no data loss).
+
+## Kafka Topic Durability
+
+- As a result, for a replication factor of N, you can permanently lose up to N-1 brokers and still recover your data.
