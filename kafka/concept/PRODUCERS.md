@@ -4,7 +4,7 @@
 - Producers know to which partition to write to (and which Kafka broker has it).
 - In case of Kafka broker failures, Producers will automatically recover.
 
-## Message
+### Message
 ![Message](kafka_message.png)
 
 ### Keys
